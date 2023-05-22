@@ -19,15 +19,15 @@ depends_on = None
 def upgrade() -> None:
     op.create_table(
         "users",
-        sa.Column("id",sa.Integer, primary_key=True),
-        sa.Column("uuid",sa.UUID(as_uuid=True)),
-        sa.Column("username",sa.String, nullable=False),
+        sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("uuid", sa.UUID(as_uuid=True)),
+        sa.Column("username", sa.String, nullable=False),
     )
     op.create_table(
         "audiofiles",
-        sa.Column("id",sa.Integer, primary_key=True),
-        sa.Column("uuid",sa.UUID(as_uuid=True)),
-        sa.Column("url",sa.String, nullable=False),
+        sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("uuid", sa.UUID(as_uuid=True)),
+        sa.Column("blob", sa.BLOB, nullable=False),
     )
 
 

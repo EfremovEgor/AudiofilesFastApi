@@ -1,7 +1,16 @@
-from pydantic import BaseModel
-from pydantic import UUID4
+from pydantic import BaseModel, File, UUID4, AnyUrl
 
 
 class UserReturn(BaseModel):
     id: int
     uuid: UUID4
+
+
+class AudioRequest(BaseModel):
+    id: int
+    uuid: UUID4
+    audio: File
+
+
+class AudioResponseURL(BaseModel):
+    url: AnyUrl
