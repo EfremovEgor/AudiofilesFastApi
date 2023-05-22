@@ -1,4 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from .schemas import UserReturn
+from sqlalchemy.orm import Session
+from .database import get_db
+from .models import User, Audiofile
 
 app = FastAPI()
 
+
+@app.post("/create_user/")
+def create_user(username: str, db: Session = Depends(get_db)) -> UserReturn:
+    to_create = User(username=username)
+    db.add(to_create)
+    db.commit()
+    return UserReturn(id=to_create.id, uuid=to_create.uuid)
