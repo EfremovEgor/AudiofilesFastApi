@@ -1,4 +1,4 @@
-from pydantic import BaseModel, File, UUID4, AnyUrl
+from pydantic import BaseModel, StrBytes, UUID4, AnyUrl
 
 
 class UserReturn(BaseModel):
